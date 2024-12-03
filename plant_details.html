@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant and Sensor Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div style="position: absolute; top: 10px; left: 10px;">
+        <p>Email: <strong>{{ user_email }}</strong></p>
+    </div>
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Plant and Sensor Details</h1>
+        <div class="row">
+            <!-- Plant Details -->
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Plant Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Name:</strong> {{ plant['display_pid'] }}</p>
+                        <p><strong>Category:</strong> {{ plant['category'] }}</p>
+                        <p><strong>Temperature Range:</strong> {{ plant['min_temp'] }}°C - {{ plant['max_temp'] }}°C</p>
+                        <p><strong>Soil Moisture:</strong> {{ plant['min_soil_moist'] }}% - {{ plant['max_soil_moist'] }}%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sensor Details -->
+            <div class="col-md-5 offset-md-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Sensor Details</h4>
+                    </div>
+                    <div class="card-body">
+                        {% if sensor %}
+                            <p><strong>Timestamp:</strong> {{ sensor['sample_time_utc'] }}</p>
+                            <p><strong>Humidity:</strong> {{ sensor['Humidity'] }}%</p>
+                            <p><strong>Temperature:</strong> {{ sensor['Temperature'] }}°C</p>
+                            <p><strong>Battery Level:</strong> {{ sensor['Battery Level'] }}%</p>
+                        {% else %}
+                            <p>No sensor data available.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 text-center">
+            <a href="/home3" class="btn btn-primary">Back to My Plants</a>
+        </div>
+    </div>
+</body>
+</html>

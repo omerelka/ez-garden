@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Plants</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            text-decoration: none; /* מסיר את הקו התחתון מקישורים */
+        }
+
+        .button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-btn {
+            background-color: red;
+            color: white;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
+        }
+
+        .data-btn {
+            background-color: blue;
+            color: white;
+        }
+
+        .data-btn:hover {
+            background-color: darkblue;
+        }
+
+        .add-btn {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div style="position: absolute; top: 10px; left: 10px;">
+        <p>Email: <strong>{{ user_email }}</strong></p>
+    </div>
+    <div class="container">
+        <h1>My Plants</h1>
+        <ul>
+            {% for plant in plants %}
+                <li>
+                    {{ "Area: " }}{{ plant.area }}, {{ "Type: " }}{{ plant.type }}
+                    <div>
+                        <!-- כפתור Data -->
+                        <a href="/plant_details/{{ plant.type }}">
+                            <button class="button data-btn">Data</button>
+                        </a>
+
+                        <!-- כפתור Delete -->
+                        <form action="/delete_plant/{{ plant.id }}" method="POST" style="display:inline;">
+                            <button class="button delete-btn" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div>
+            <a href="/add_plant">
+                <button class="add-btn">Add Plant</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZ-Garden Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .buttons {
+            position: absolute;
+            top: 20px; /* מרחק מהחלק העליון של הדף */
+            right: 20px; /* מרחק מהצד הימני של הדף */
+            display: flex;
+            gap: 10px; /* מרווח בין הכפתורים */
+        }
+
+        .buttons a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .buttons a:hover {
+            background-color: #0056b3;
+        }
+
+        .header {
+            margin-top: 80px; /* רווח כדי למקם את הכותרת מתחת לכפתורים */
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons">
+        <a href="/login">Login</a>
+        <a href="/register_type">Register</a>
+    </div>
+    <div class="header">
+        <h1>Welcome to EZ-Garden</h1>
+    </div>
+</body>
+</html>
